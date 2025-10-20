@@ -1,0 +1,41 @@
+.txt_block {
+  &.theme_2 {
+    background-color: $color1;
+    h2 {
+      color: $white !important;
+    }
+    p {
+      color: $white !important;
+    }
+    a {
+      color: $color1 !important;
+      background-color: $white !important;
+      &:hover {
+        color: $white !important;
+        background-color: $black !important;
+      }
+    }
+  }
+  a {
+    color: $white !important;
+    background-color: $color1 !important;
+    &:hover {
+      color: $white !important;
+      background-color: $black !important;
+    }
+  }
+  .text-container {
+    h2 {
+      margin-top: 0;
+    }
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+    &.right {
+      text-align: right;
+    }
+  }
+}

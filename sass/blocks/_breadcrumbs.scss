@@ -1,0 +1,12 @@
+.breadcrumbs-block {
+  &.theme_2 {
+    background-color: $color1;
+    color: white;
+    a {
+      color: white;
+      &:hover {
+        color: $color2;
+      }
+    }
+  }
+}

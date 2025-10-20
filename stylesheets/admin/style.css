@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+body,
+#wpadminbar,
+.wp-admin,
+#adminmenu,
+.wp-core-ui,
+input,
+textarea {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "San Francisco",
+    "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+.row-title {
+  font-weight: 500 !important;
+}
+body {
+  background-color: #1d2327 !important;
+}
+
+table {
+  border: 1px solid transparent !important;
+}
+#wpcontent {
+  border-radius: 12px;
+  background-color: white !important;
+  min-height: 95vh;
+}
+#wpfooter {
+  display: none;
+}
+/* #postdivrich {
+  display: none;
+} */
+#acf-group_65c26ae6e7cf6 {
+  border: 1px solid transparent !important;
+}
+div[data-type="group"] .acf-input .acf-fields {
+  border: 1px solid transparent !important;
+}
+div[data-type="group"] .acf-input .acf-field {
+  padding: 0 auto;
+}
+* {
+  border-color: rgb(230, 230, 230);
+}
+input {
+  border-color: rgb(138, 138, 138) !important;
+}
+.acf-flexible-content .layout,
+.postbox {
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  border-radius: 6px;
+  padding: 0.6em 0.3em;
+  border: 1px solid #e7e7e7 !important;
+}
+.acf-flexible-content .layout {
+  box-shadow: 0 1px 20px 5px rgba(0, 0, 0, 0.04);
+}
+.acf-field-page-builder, #acf-group_page_builder_consolidated{
+  margin-top: 2em !important;
+  padding: 0 !important;
+}
+.postbox-header {
+  border-bottom: 0px;
+}
+
+#major-publishing-actions {
+  background-color: transparent;
+}
+
+.acf-flexible-content .layout > *,
+.acf-field[data-width] + .acf-field[data-width] {
+  border: 1px solid rgba(255, 255, 255, 0) !important;
+}
+.page-title-action {
+  background-color: #2271b1 !important;
+  margin-left: 16px !important;
+  color: white !important;
+}
+.media-toolbar {
+  border: 1px solid transparent !important;
+}
+#wp-content-editor-tools {
+  background-color: #fff !important;
+}
+#wp-admin-bar-wp-logo {
+  display: none !important;
+}
+tfoot,
+.tablenav.bottom,
+#contextual-help-link-wrap {
+  display: none;
+}
+body.gform-admin {
+  background-color: white;
+}
+
+#acf-group_page_builder, #acf-group_page_builder_consolidated {
+  border: 0px solid transparent !important;
+}
+#acf-group_page_builder .postbox-header {
+  display: none !important;
+}
+
+.acf-field-hero-accordion {
+  min-height: 0 !important;
+}

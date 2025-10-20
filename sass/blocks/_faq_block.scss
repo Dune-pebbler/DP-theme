@@ -1,0 +1,140 @@
+.faq_block {
+  &.theme_2 {
+    background-color: $color1;
+    .faq_block__title-container {
+      h2 {
+        color: $white !important;
+        margin-top: 0px;
+      }
+    }
+    .faq_block__item {
+      // OPEN STYLES
+      &[open] {
+        // Your existing open styles for the container
+        border-bottom: none;
+        background-color: rgba($white, 0.5);
+
+        .faq_block__question {
+          color: white; // Question text color when open
+          border-bottom: none;
+
+          // OPEN ICON: Change the plus to a minus (or a rotated icon)
+          &::after {
+            content: "—"; // Change the content to a minus sign
+            transform: rotate(180deg); // Rotate the minus for visual effect
+            color: white; // Icon color when open
+            font-size: 14px;
+          }
+        }
+        .faq_block__answer {
+          p {
+            color: white !important;
+          }
+        }
+      }
+
+      // QUESTION STYLES (Summary)
+      .faq_block__question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        // 3. Custom Icon (Plus symbol)
+        &::after {
+          content: "+";
+          color: $white; // Icon color when closed
+          transition: transform 0.3s ease; // Smooth transition for the icon
+          margin-left: 1rem; // Ensure space between question text and icon
+        }
+
+        // Your existing general question styles
+        font-size: 20px;
+        font-weight: 700;
+        color: $white;
+        padding: 20px 10px;
+        border-bottom: 1px solid $white;
+        cursor: pointer;
+      }
+
+      .faq_block__answer {
+        color: $white;
+        padding: 20px 10px;
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .faq_block__title-container {
+    display: flex;
+    justify-content: center;
+  }
+  .faq_block__item {
+    // OPEN STYLES
+    &[open] {
+      // Your existing open styles for the container
+      border-bottom: none;
+      background-color: rgba($black, 0.5);
+
+      .faq_block__question {
+        color: white; // Question text color when open
+        border-bottom: none;
+
+        // OPEN ICON: Change the plus to a minus (or a rotated icon)
+        &::after {
+          content: "—"; // Change the content to a minus sign
+          transform: rotate(180deg); // Rotate the minus for visual effect
+          color: white; // Icon color when open
+          font-size: 14px;
+        }
+      }
+      .faq_block__answer {
+        p {
+          color: white !important;
+        }
+        li {
+          color: white !important;
+        }
+      }
+    }
+
+    // QUESTION STYLES (Summary)
+    .faq_block__question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      // 3. Custom Icon (Plus symbol)
+      &::after {
+        content: "+";
+        color: $black; // Icon color when closed
+        transition: transform 0.3s ease; // Smooth transition for the icon
+        margin-left: 1rem; // Ensure space between question text and icon
+      }
+
+      // Your existing general question styles
+      font-size: 20px;
+      font-weight: 700;
+      color: $black;
+      padding: 20px 10px;
+      border-bottom: 1px solid $black;
+      cursor: pointer;
+    }
+
+    .faq_block__answer {
+      color: $black;
+      padding: 20px 10px;
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,274 @@
+[data-animate] {
+  opacity: 0;
+  transform: translateZ(0);
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-property: opacity, transform;
+}
+[data-animate^="fade"].animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+[data-animate^="zoom"].animate {
+  opacity: 1;
+  transform: translateZ(0) scale(1);
+}
+[data-animate="fade-up"] {
+  transform: translate3d(0, 6px, 0);
+  opacity: 0;
+}
+[data-animate="zoom-in"] {
+  transform: scale(0.98);
+  opacity: 0;
+}
+
+[data-animate-delay="50"].animate {
+  transition-delay: 50ms;
+}
+[data-animate-delay="100"].animate {
+  transition-delay: 100ms;
+}
+[data-animate-delay="150"].animate {
+  transition-delay: 150ms;
+}
+[data-animate-delay="200"].animate {
+  transition-delay: 200ms;
+}
+// Base animation settings
+$animation-duration: 1.5s;
+$animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$animation-delay: 1s;
+
+// FADE IN FROM BOTTOM (original)
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity $animation-duration $animation-easing,
+    transform $animation-duration $animation-easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// SLIDE IN FROM LEFT
+.slide-left-on-scroll {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity $animation-duration $animation-easing,
+    transform $animation-duration $animation-easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// SLIDE IN FROM RIGHT
+.slide-right-on-scroll {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity $animation-duration $animation-easing,
+    transform $animation-duration $animation-easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// SCALE UP ANIMATION
+.scale-up-on-scroll {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity $animation-duration $animation-easing,
+    transform $animation-duration $animation-easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ROTATE IN ANIMATION
+.rotate-in-on-scroll {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.9);
+  transition: opacity $animation-duration $animation-easing,
+    transform $animation-duration $animation-easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+// BOUNCE IN ANIMATION
+.bounce-in-on-scroll {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// FLIP IN ANIMATION
+.flip-in-on-scroll {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(-90deg);
+  transition: opacity $animation-duration $animation-easing,
+    transform $animation-duration $animation-easing;
+
+  &.in-view {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+// TYPEWRITER EFFECT
+.typewriter-on-scroll {
+  opacity: 0;
+
+  &.in-view {
+    opacity: 1;
+    animation: typewriter 2s steps(40, end);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+// DELAYED ANIMATION
+.delayed-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity $animation-duration $animation-easing #{$animation-delay +
+      0.5s},
+    transform $animation-duration $animation-easing #{$animation-delay + 0.5s};
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// STAGGER ANIMATION CONTAINER
+.stagger-on-scroll {
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s $animation-easing, transform 0.6s $animation-easing;
+
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// ADVANCED ANIMATIONS
+
+// Slide and fade combination
+.slide-fade-up-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+// Elastic bounce
+.elastic-on-scroll {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  &.in-view {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Blur to focus
+.blur-focus-on-scroll {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+
+  &.in-view {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  // Reduce animation intensity on mobile
+  .fade-in-on-scroll,
+  .slide-left-on-scroll,
+  .slide-right-on-scroll {
+    transform: translateY(15px);
+
+    &.in-view {
+      transform: translateY(0);
+    }
+  }
+
+  .slide-left-on-scroll {
+    transform: translateX(-25px);
+
+    &.in-view {
+      transform: translateX(0);
+    }
+  }
+
+  .slide-right-on-scroll {
+    transform: translateX(25px);
+
+    &.in-view {
+      transform: translateX(0);
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-on-scroll,
+  .slide-left-on-scroll,
+  .slide-right-on-scroll,
+  .scale-up-on-scroll,
+  .rotate-in-on-scroll,
+  .bounce-in-on-scroll,
+  .flip-in-on-scroll,
+  .delayed-on-scroll,
+  .stagger-on-scroll .stagger-item,
+  .slide-fade-up-on-scroll,
+  .elastic-on-scroll,
+  .blur-focus-on-scroll {
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+
+    &.in-view {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+// abstracts
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/bootstrap";
+
+// animations
+@import "animations/animations";
+
+// base
+@import "base/typography";
+@import "base/reset";
+
+//blocks
+@import "blocks/text_with_image";
+@import "blocks/txt_block";
+@import "blocks/image_block";
+@import "blocks/faq_block";
+@import "blocks/masonry_gallery";
+@import "blocks/breadcrumbs";
+@import "blocks/hero_banner";
+@import "global-settings";
+
+// modules
+@import "modules/buttons";
+@import "modules/searchbar";
+@import "modules/footer";
+@import "modules/form";
+@import "modules/header";
+@import "modules/socials";
+@import "modules/card";
+
+// pages
+@import "pages/404";
+
+// utilities
+@import "utilities/flexboxv2";
+@import "utilities/flexbox";
+@import "utilities/grid";
+@import "utilities/spacings";
+@import "utilities/flexbox";
+@import "utilities/general";
+@import "utilities/images";
+@import "utilities/blocksettings";
+
+// shame
+@import "shame";

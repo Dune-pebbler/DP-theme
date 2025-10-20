@@ -1,0 +1,30 @@
+.block-masonry {
+  &.theme_2 {
+    background-color: $color1;
+  }
+  .masonry-grid {
+    margin: 0 auto;
+  }
+  .masonry-item {
+    display: block;
+    width: calc(33.333% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+  }
+  .masonry-item img {
+    display: block; // Removes extra space below inline elements
+    width: 100%;
+    height: auto;
+  }
+  @media screen and (max-width: 768px) {
+    .masonry-item {
+      width: calc(50% - 20px);
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .masonry-item {
+      width: 100%;
+    }
+  }
+}
