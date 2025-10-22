@@ -22,7 +22,7 @@
         },
         {
             "key": "field_68dfe2bec0a11",
-            "label": "Spacing",
+            "label": "Layout",
             "name": "spacing_group",
             "aria-label": "",
             "type": "group",
@@ -38,7 +38,7 @@
             "sub_fields": [
                 {
                     "key": "field_68e394013a02f",
-                    "label": "Padding",
+                    "label": "Ruimte tussen blok",
                     "name": "padding_picker",
                     "aria-label": "",
                     "type": "radio",
@@ -51,12 +51,12 @@
                         "id": ""
                     },
                     "choices": {
-                        "p-m": "Padding standaard",
-                        "p-b": "Padding groot",
-                        "p-s": "Padding klein",
-                        "p-x": "Geen padding"
+                        "p-m": "Standaard",
+                        "p-b": "Groot",
+                        "p-s": "Klein",
+                        "p-x": "Geen"
                     },
-                    "default_value": "",
+                    "default_value": "p-m",
                     "return_format": "value",
                     "allow_null": 0,
                     "other_choice": 0,
@@ -190,5 +190,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760445747
+    "modified": 1761133027
 }

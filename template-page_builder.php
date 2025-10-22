@@ -1,7 +1,7 @@
 <?php
 /*
  * Template Name: Page Builder
- * Template Post Type: page, doelgroep, dienst, post
+ * Template Post Type: page, post
  */
 
 get_header(); ?>

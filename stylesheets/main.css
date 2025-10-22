@@ -804,44 +804,6 @@ picture {
      object-fit: cover;
 }
 
-.p-b {
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-@media (max-width: 576px) {
-  .p-b {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-}
-
-.p-m {
-  padding-top: 70px;
-  padding-bottom: 70px;
-}
-@media (max-width: 576px) {
-  .p-m {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-}
-
-.p-s {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-@media (max-width: 576px) {
-  .p-s {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-}
-
-.p-x {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
 .btn, .owl-nav .owl-prev,
 .owl-nav .owl-next, .btn-outline, .btn-secondary,
 .btn-primary {
@@ -1223,9 +1185,59 @@ header.main-header .hamburger-cross .cross__line--2 {
   margin-left: auto;
 }
 
+.announcement-banner {
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+}
+.announcement-banner__content {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.announcement-banner__content a {
+  color: inherit;
+  text-decoration: underline;
+}
+.announcement-banner__content a:hover {
+  text-decoration: none;
+}
+.announcement-banner__content p {
+  margin: 0;
+}
+.announcement-banner__content p:not(:last-child) {
+  margin-bottom: 8px;
+}
+.announcement-banner__content h1,
+.announcement-banner__content h2,
+.announcement-banner__content h3,
+.announcement-banner__content h4,
+.announcement-banner__content h5,
+.announcement-banner__content h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+@media (max-width: 768px) {
+  .announcement-banner {
+    padding: 8px 0;
+  }
+  .announcement-banner__content {
+    font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .announcement-banner {
+    padding: 6px 0;
+  }
+  .announcement-banner__content {
+    font-size: 12px;
+  }
+}
+
 section.error-404 {
   padding: 5em 0;
-  border-radius: 4px;
 }
 
 .flex, .flex-end, .flex-end-center, .flex-end-stretch, .flex-end-end, .flex-end-start, .flex-start, .flex-start-stretch, .flex-start-end, .flex-start-start, .flex-evenly, .flex-evenly-stretch, .flex-evenly-end, .flex-evenly-start, .flex-around, .flex-around-stretch, .flex-around-end, .flex-around-start, .flex-between, .flex-between-center, .flex-between-stretch, .flex-between-end, .flex-between-start, .flex-center, .flex-center-stretch, .flex-center-end, .flex-center-start {
@@ -3891,6 +3903,44 @@ picture > img {
 .img-container {
   overflow: hidden;
   border-radius: 16px;
+}
+
+.p-b {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+@media (max-width: 576px) {
+  .p-b {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.p-m {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+@media (max-width: 576px) {
+  .p-m {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.p-s {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (max-width: 576px) {
+  .p-s {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.p-x {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .owl-stage-outer,

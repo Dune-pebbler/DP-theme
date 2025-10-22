@@ -19,7 +19,6 @@
 @import "blocks/masonry_gallery";
 @import "blocks/breadcrumbs";
 @import "blocks/hero_banner";
-@import "global-settings";
 
 // modules
 @import "modules/buttons";
@@ -29,6 +28,7 @@
 @import "modules/header";
 @import "modules/socials";
 @import "modules/card";
+@import "modules/announcement_banner";
 
 // pages
 @import "pages/404";
@@ -42,6 +42,7 @@
 @import "utilities/general";
 @import "utilities/images";
 @import "utilities/blocksettings";
+@import "utilities/global-settings";
 
 // shame
 @import "shame";

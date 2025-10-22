@@ -20,16 +20,34 @@ $logo_primary = get_field('site_settings_logo_primary', 'option');
 $logo_long = get_field('site_settings_logo_long', 'option');
 
 $socials_bool = get_field('site_settings_socials_boolean');
+
+// Announcement banner data
+$announcement_bool = get_field('announcement_bool', 'option');
+$announcement_bg_color = get_field('announcement_achtergrond_kleur', 'option');
+$announcement_text_color = get_field('announcement_tekst_kleur', 'option');
+$announcement_content = get_field('announcement_inhoud_bericht', 'option');
 ?>
 
 <body <?php body_class() ?>>
+
+  <?php if ($announcement_bool && $announcement_content): ?>
+    <div class="announcement-banner"
+      style="background-color: <?php echo esc_attr($announcement_bg_color); ?>; color: <?php echo esc_attr($announcement_text_color); ?>;">
+      <div class="container mx-auto px-1">
+        <div class="announcement-banner__content">
+          <?php echo $announcement_content; ?>
+        </div>
+      </div>
+    </div>
+  <?php endif; ?>
 
   <header class="main-header">
     <nav class="nav-main container mx-auto px-1 grid grid-cols-auto-1fr items-start">
       <div class="nav-logo">
         <a class="nav-logo__link" href="/" title="Home">
           <?php if ($logo_long): ?>
-            <img class="nav-logo__img long" src="<?php echo esc_url($logo_long['url']); ?>" alt="<?php echo esc_attr($logo_long['alt']); ?>" />
+            <img class="nav-logo__img long" src="<?php echo esc_url($logo_long['url']); ?>"
+              alt="<?php echo esc_attr($logo_long['alt']); ?>" />
           <?php elseif ($logo_primary): ?>
             <img class="nav-logo__img" src="<?php echo esc_url($logo_primary['url']); ?>"
               alt="<?php echo esc_attr($logo_primary['alt']); ?>" />
@@ -53,14 +71,16 @@ $socials_bool = get_field('site_settings_socials_boolean');
         <?php endif; ?>
         <?php if ($socials_bool): ?>
           <div class="socials">
-            <?php while (have_rows('socials_repeater', 'option')) : the_row(); ?>
+            <?php while (have_rows('socials_repeater', 'option')):
+              the_row(); ?>
 
               <?php
               $socials_sub_icon = get_sub_field('socials_repeater_icon');
               $socials_sub_link = get_sub_field('socials_repeater_link');
 
-              if ($socials_sub_icon && $socials_sub_link) : ?>
-                <a class="socials__link" href="<?php echo esc_url($socials_sub_link['url']); ?>" target="_blank" rel="noopener noreferrer">
+              if ($socials_sub_icon && $socials_sub_link): ?>
+                <a class="socials__link" href="<?php echo esc_url($socials_sub_link['url']); ?>" target="_blank"
+                  rel="noopener noreferrer">
                   <img class="socials__img" src="<?php echo esc_url($socials_sub_icon['url']); ?>" alt="Social Icon">
                 </a>
               <?php endif; ?>
