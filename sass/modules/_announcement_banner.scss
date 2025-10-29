@@ -1,17 +1,12 @@
-// Announcement Banner Styles
 .announcement-banner {
   width: 100%;
   padding: 12px 0;
   text-align: center;
   position: relative;
   z-index: 1000;
-
-  // Ensure it appears above other content
   &__content {
     font-size: 14px;
     line-height: 1.4;
-
-    // Style any links within the banner
     a {
       color: inherit;
       text-decoration: underline;
@@ -20,8 +15,6 @@
         text-decoration: none;
       }
     }
-
-    // Style any paragraphs
     p {
       margin: 0;
 
@@ -29,8 +22,6 @@
         margin-bottom: 8px;
       }
     }
-
-    // Style any headings
     h1,
     h2,
     h3,
@@ -42,8 +33,6 @@
       font-weight: inherit;
     }
   }
-
-  // Responsive adjustments
   @media (max-width: 768px) {
     padding: 8px 0;
 
@@ -51,8 +40,6 @@
       font-size: 13px;
     }
   }
-
-  // Ensure banner is visible on mobile
   @media (max-width: 480px) {
     padding: 6px 0;
 
@@ -61,4 +48,3 @@
     }
   }
 }
-

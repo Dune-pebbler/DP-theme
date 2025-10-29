@@ -94,7 +94,12 @@ function theme_enqueue_scripts()
   # Functions
   wp_enqueue_script('js-main', get_template_directory_uri() . "/js/main.js", ['jquery'], filemtime(get_template_directory() . "/js/main.js"), true);
   wp_enqueue_script('init-map', get_template_directory_uri() . '/js/init-map.js', array('google-maps-loader'), '1.0.0', true);
-  // wp_localize_script('shop-filter-ajax', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+
+  // Localize script for AJAX
+  wp_localize_script('js-main', 'ajax_object', array(
+    'ajax_url' => admin_url('admin-ajax.php'),
+    'nonce' => wp_create_nonce('archive_block_nonce')
+  ));
 }
 
 
@@ -275,3 +280,137 @@ function my_acf_google_map_api($api)
 # Random code
 $role_object = get_role('editor');
 $role_object->add_cap('edit_theme_options');
+
+// Archive Block AJAX handlers
+add_action('wp_ajax_archive_block_search', 'handle_archive_block_search');
+add_action('wp_ajax_nopriv_archive_block_search', 'handle_archive_block_search');
+add_action('wp_ajax_archive_block_load_more', 'handle_archive_block_load_more');
+add_action('wp_ajax_nopriv_archive_block_load_more', 'handle_archive_block_load_more');
+
+function handle_archive_block_search()
+{
+  // Verify nonce
+  if (!wp_verify_nonce($_POST['nonce'], 'archive_block_nonce')) {
+    wp_die('Security check failed');
+  }
+
+  $post_type = sanitize_text_field($_POST['post_type']);
+  $posts_per_page = intval($_POST['posts_per_page']);
+  $page = intval($_POST['page']);
+  $search = sanitize_text_field($_POST['search']);
+
+  $args = array(
+    'post_type' => $post_type,
+    'posts_per_page' => $posts_per_page,
+    'paged' => $page,
+    'post_status' => 'publish',
+    's' => $search
+  );
+
+  $query = new WP_Query($args);
+
+  $html = '';
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post();
+      $html .= get_archive_post_card_html(get_the_ID(), $post_type);
+    }
+  }
+
+  wp_reset_postdata();
+
+  wp_send_json_success(array(
+    'html' => $html,
+    'current_count' => $query->post_count,
+    'total_count' => $query->found_posts,
+    'has_more' => $query->max_num_pages > $page
+  ));
+}
+
+function handle_archive_block_load_more()
+{
+  // Verify nonce
+  if (!wp_verify_nonce($_POST['nonce'], 'archive_block_nonce')) {
+    wp_die('Security check failed');
+  }
+
+  $post_type = sanitize_text_field($_POST['post_type']);
+  $posts_per_page = intval($_POST['posts_per_page']);
+  $page = intval($_POST['page']);
+  $search = sanitize_text_field($_POST['search']);
+
+  $args = array(
+    'post_type' => $post_type,
+    'posts_per_page' => $posts_per_page,
+    'paged' => $page,
+    'post_status' => 'publish',
+    's' => $search
+  );
+
+  $query = new WP_Query($args);
+
+  $html = '';
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post();
+      $html .= get_archive_post_card_html(get_the_ID(), $post_type);
+    }
+  }
+
+  wp_reset_postdata();
+
+  wp_send_json_success(array(
+    'html' => $html,
+    'current_count' => $query->post_count,
+    'total_count' => $query->found_posts,
+    'has_more' => $query->max_num_pages > $page
+  ));
+}
+
+function get_archive_post_card_html($post_id, $post_type)
+{
+  $post = get_post($post_id);
+  $permalink = get_permalink($post_id);
+  $title = get_the_title($post_id);
+  $excerpt = get_the_excerpt($post_id);
+  $date = get_the_date('', $post_id);
+  $thumbnail_url = get_the_post_thumbnail_url($post_id, 'medium');
+
+  $html = '<div class="archive_block__post-card" data-post-id="' . $post_id . '">';
+
+  // Image
+  $html .= '<div class="archive_block__card-image">';
+  if ($thumbnail_url) {
+    $html .= '<img src="' . $thumbnail_url . '" alt="' . esc_attr($title) . '" loading="lazy">';
+  } else {
+    $html .= '<div class="archive_block__placeholder-image"><i class="fas fa-image"></i></div>';
+  }
+  $html .= '</div>';
+
+  // Content
+  $html .= '<div class="archive_block__card-content">';
+  $html .= '<h3 class="archive_block__card-title"><a href="' . $permalink . '">' . $title . '</a></h3>';
+
+  // Meta
+  $html .= '<div class="archive_block__card-meta">';
+  $html .= '<span class="archive_block__card-date">' . $date . '</span>';
+
+  // if ($post_type === 'post') {
+  //   $categories = get_the_category($post_id);
+  //   if ($categories) {
+  //     $html .= '<span class="archive_block__card-category">' . $categories[0]->name . '</span>';
+  //   }
+  // }
+  $html .= '</div>';
+
+  // Excerpt
+  $html .= '<div class="archive_block__card-excerpt">' . wp_trim_words($excerpt, 20, '...') . '</div>';
+
+  // Link
+  $html .= '<a href="' . $permalink . '" class="archive_block__card-link">Lees meer <i class="fas fa-arrow-right"></i></a>';
+
+  $html .= '</div>';
+  $html .= '</div>';
+
+  return $html;
+}

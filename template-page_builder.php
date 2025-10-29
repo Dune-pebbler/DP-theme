@@ -13,6 +13,18 @@ get_header(); ?>
                         <?php get_template_part('template-parts/blocks/hero_banner'); ?>
                 <?php endif; ?>
 
+                <?php if (get_row_layout() === 'hero_block'): ?>
+                        <?php get_template_part('template-parts/blocks/hero_block'); ?>
+                <?php endif; ?>
+
+                <?php if (get_row_layout() === 'hero_slider_block'): ?>
+                        <?php get_template_part('template-parts/blocks/hero_slider_block'); ?>
+                <?php endif; ?>
+
+                <?php if (get_row_layout() === 'hero_video_block'): ?>
+                        <?php get_template_part('template-parts/blocks/hero_video_block'); ?>
+                <?php endif; ?>
+
                 <?php if (get_row_layout() === 'text_with_image'): ?>
                         <?php get_template_part('template-parts/blocks/text_with_image'); ?>
                 <?php endif; ?>
@@ -35,6 +47,14 @@ get_header(); ?>
 
                 <?php if (get_row_layout() === 'breadcrumbs_block'): ?>
                         <?php get_template_part('template-parts/blocks/breadcrumbs_block'); ?>
+                <?php endif; ?>
+
+                <?php if (get_row_layout() === 'archive_block'): ?>
+                        <?php get_template_part('template-parts/blocks/archive_block'); ?>
+                <?php endif; ?>
+
+                <?php if (get_row_layout() === 'logo_slider_block'): ?>
+                        <?php get_template_part('template-parts/blocks/logo_slider_block'); ?>
                 <?php endif; ?>
         <?php endwhile; ?>
 <?php endif; ?>

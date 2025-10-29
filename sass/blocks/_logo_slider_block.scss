@@ -1,0 +1,23 @@
+.logo_slider_block {
+  &__slider {
+    .owl-stage {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+
+    img {
+      max-height: 80px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: all 0.2s ease;
+    }
+  }
+}

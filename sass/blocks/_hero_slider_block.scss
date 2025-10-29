@@ -1,0 +1,370 @@
+.hero_slider_block {
+  position: relative;
+  height: calc(100vh - 94px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__slider {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .owl-stage-outer {
+      height: 100%;
+    }
+
+    .owl-stage {
+      height: 100%;
+    }
+
+    .owl-item {
+      height: 100vh;
+    }
+  }
+
+  &__slide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    &--center {
+      text-align: center;
+    }
+
+    &--left {
+      text-align: left;
+      justify-content: flex-start;
+    }
+
+    &--right {
+      text-align: right;
+      justify-content: flex-end;
+    }
+  }
+
+  &__text-container {
+    max-width: 800px;
+    width: 100%;
+  }
+
+  &__description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    font-weight: 500;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 2rem;
+      }
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      line-height: 1.3;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.8rem;
+      }
+    }
+
+    h3 {
+      font-size: 2rem;
+      line-height: 1.3;
+
+      @media (max-width: 768px) {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 480px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 2rem;
+
+    .btn-hero {
+      background-color: $color1;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--button-border-radius, 4px);
+      transition: all 0.3s ease;
+      display: inline-block;
+      color: white;
+
+      &:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        background-color: $color2;
+      }
+    }
+  }
+  .owl-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: 4;
+    pointer-events: none;
+    button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2) !important;
+      border: 2px solid rgba(255, 255, 255, 0.5) !important;
+      color: white !important;
+      font-size: 1.5rem !important;
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+      pointer-events: all;
+      cursor: pointer;
+      padding: 0 !important;
+      margin: 0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      &:before,
+      &:after {
+        display: none !important;
+        content: none !important;
+      }
+      &:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+        border-color: rgba(255, 255, 255, 0.8) !important;
+        transform: translateY(-50%) !important;
+        width: 50px !important;
+        height: 50px !important;
+      }
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      &.owl-prev {
+        left: 30px;
+      }
+      &.owl-next {
+        right: 30px;
+      }
+    }
+  }
+  .owl-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 10px;
+    .owl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4) !important;
+      border: none !important;
+      transition: all 0.3s ease !important;
+      cursor: pointer;
+      &.active {
+        background: rgba(255, 255, 255, 0.9) !important;
+        transform: scale(1.2);
+      }
+      &:hover {
+        background: rgba(255, 255, 255, 0.7) !important;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    min-height: 80vh;
+    height: 80vh;
+    &__container {
+      height: 80vh;
+    }
+
+    &__slider {
+      height: 80vh;
+
+      .owl-item {
+        height: 80vh;
+      }
+    }
+
+    &__slide {
+      height: 80vh;
+    }
+
+    &__content {
+      padding: 1.5rem;
+    }
+
+    &__description {
+      font-size: 1.1rem;
+    }
+
+    .owl-nav {
+      button {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 1.2rem !important;
+
+        &.owl-prev {
+          left: 15px;
+        }
+
+        &.owl-next {
+          right: 15px;
+        }
+      }
+    }
+
+    .owl-dots {
+      bottom: 20px;
+
+      .owl-dot {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    min-height: 70vh;
+    height: 70vh;
+
+    &__container {
+      height: 70vh;
+    }
+
+    &__slider {
+      height: 70vh;
+
+      .owl-item {
+        height: 70vh;
+      }
+    }
+
+    &__slide {
+      height: 70vh;
+    }
+
+    &__content {
+      padding: 1rem;
+    }
+
+    &__description {
+      font-size: 1rem;
+    }
+
+    &__button {
+      .btn-hero {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    .owl-nav {
+      button {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 1rem !important;
+
+        &.owl-prev {
+          left: 10px;
+        }
+
+        &.owl-next {
+          right: 10px;
+        }
+      }
+    }
+
+    .owl-dots {
+      bottom: 15px;
+
+      .owl-dot {
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+}

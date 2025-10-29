@@ -21,7 +21,7 @@ require 'global-settings.php';
                     <?php foreach ($faq_block_repeater as $faq): ?>
                         <details class="faq_block__item">
                             <summary class="faq_block__question">
-                                <?= $faq['faq_question'] ?>
+                                <p><?= $faq['faq_question'] ?></p>
                             </summary>
 
                             <div class="faq_block__answer">
