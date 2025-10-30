@@ -1,12 +1,9 @@
 <?php
-// Retrieve current section fields
 $txt_with_image_text = get_sub_field('img_txt_content');
 $txt_with_image_image = get_sub_field('img_txt_image');
 $txt_with_image_reverse = get_sub_field('img_txt_layout');
 $txt_with_image_small_image = get_sub_field('img_txt_small-image');
 $txt_with_image_button = get_sub_field('img_txt_button');
-
-// Define column class based on image size setting
 $image_col = $txt_with_image_small_image ? 'col-lg-4' : 'col-lg-6';
 
 require 'global-settings.php';

@@ -1,8 +1,25 @@
 .logo_slider_block {
+  &.theme_2 {
+    background-color: $color1;
+  }
   &__slider {
     .owl-stage {
       display: flex;
       align-items: center;
+    }
+
+    &--grayscale {
+      .logo_slider_block__item img {
+        filter: grayscale(100%);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+
+      .logo_slider_block__item a:hover img,
+      .logo_slider_block__item:hover img {
+        filter: none;
+        opacity: 1;
+      }
     }
   }
 
@@ -17,7 +34,7 @@
       width: auto;
       height: auto;
       object-fit: contain;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
   }
 }

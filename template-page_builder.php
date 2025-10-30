@@ -56,6 +56,14 @@ get_header(); ?>
                 <?php if (get_row_layout() === 'logo_slider_block'): ?>
                         <?php get_template_part('template-parts/blocks/logo_slider_block'); ?>
                 <?php endif; ?>
+
+                <?php if (get_row_layout() === 'contact_block'): ?>
+                        <?php get_template_part('template-parts/blocks/contact_block'); ?>
+                <?php endif; ?>
+
+                <?php if (get_row_layout() === 'google_maps_block'): ?>
+                        <?php get_template_part('template-parts/blocks/google_maps_block'); ?>
+                <?php endif; ?>
         <?php endwhile; ?>
 <?php endif; ?>
 

@@ -143,11 +143,11 @@ function startOwlSlider() {
       nav: false,
       dots: false,
       autoplay: true,
-      autoplayTimeout: 2000, // continuous
+      autoplayTimeout: speed,
       autoplaySpeed: speed,
       smartSpeed: speed,
       slideTransition: "linear",
-      autoplayHoverPause: false,
+      autoplayHoverPause: true,
       responsive: {
         0: { items: 3 },
         600: { items: 5 },
@@ -158,33 +158,85 @@ function startOwlSlider() {
 }
 
 async function initMap() {
-  const mapElement = document.getElementById("map");
-  if (!mapElement) {
+  // Initialize all Google Maps on the page
+  const mapElements = document.querySelectorAll('[id^="google-map-"], #map');
+
+  if (mapElements.length === 0) {
     return;
   }
-  const zoom = parseInt(mapElement.getAttribute("data-zoom"));
-  const lat = parseFloat(mapElement.getAttribute("data-lat"));
-  const lng = parseFloat(mapElement.getAttribute("data-lng"));
 
   // Request needed libraries.
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary(
     "marker"
   );
-  const map = new Map(document.getElementById("map"), {
-    center: { lat, lng },
-    zoom: zoom,
-    mapId: "4504f8b37365c3d0",
-  });
 
-  const logoMarkerUrl = document.createElement("img");
-  if (document.getElementById("logo-marker").src)
-    logoMarkerUrl.src = document.getElementById("logo-marker").src;
+  // Initialize each map
+  mapElements.forEach(async (mapElement) => {
+    try {
+      const lat = parseFloat(mapElement.getAttribute("data-lat"));
+      const lng = parseFloat(mapElement.getAttribute("data-lng"));
+      const address = mapElement.getAttribute("data-address");
+      const zoom = parseInt(mapElement.getAttribute("data-zoom")) || 15;
 
-  const marker = new google.maps.marker.AdvancedMarkerElement({
-    map,
-    position: { lat, lng },
-    content: logoMarkerUrl,
+      if (!lat || !lng) {
+        console.warn(
+          "Google Maps: Missing coordinates for map element",
+          mapElement
+        );
+        mapElement.classList.add("google_maps_block__map--error");
+        return;
+      }
+
+      // Add loading state
+      mapElement.classList.add("google_maps_block__map--loading");
+
+      const map = new Map(mapElement, {
+        center: { lat, lng },
+        zoom: zoom,
+        mapId: "4504f8b37365c3d0",
+        mapTypeControl: true,
+        streetViewControl: true,
+        fullscreenControl: true,
+        zoomControl: true,
+      });
+
+      // Create marker
+      let markerContent;
+
+      // Check if there's a logo marker for the main map
+      if (mapElement.id === "map" && document.getElementById("logo-marker")) {
+        const logoMarkerUrl = document.createElement("img");
+        if (document.getElementById("logo-marker").src) {
+          logoMarkerUrl.src = document.getElementById("logo-marker").src;
+          markerContent = logoMarkerUrl;
+        }
+      }
+
+      // If no custom marker, create a default pin
+      if (!markerContent) {
+        const pinElement = new PinElement({
+          background: "#4285F4",
+          borderColor: "#137333",
+          glyphColor: "#ffffff",
+        });
+        markerContent = pinElement.element;
+      }
+
+      const marker = new AdvancedMarkerElement({
+        map,
+        position: { lat, lng },
+        content: markerContent,
+        title: address || "Locatie",
+      });
+
+      // Remove loading state
+      mapElement.classList.remove("google_maps_block__map--loading");
+    } catch (error) {
+      console.error("Google Maps initialization error:", error);
+      mapElement.classList.remove("google_maps_block__map--loading");
+      mapElement.classList.add("google_maps_block__map--error");
+    }
   });
 }
 

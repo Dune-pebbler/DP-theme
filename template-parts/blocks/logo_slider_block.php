@@ -1,6 +1,7 @@
 <?php
 $logo_slider_items = get_sub_field('logo_slider_items');
 $logo_slider_speed = get_sub_field('logo_slider_speed');
+$logo_slider_grayscale = get_sub_field('logo_slider_grayscale');
 
 @require 'global-settings.php';
 ?>
@@ -9,7 +10,7 @@ $logo_slider_speed = get_sub_field('logo_slider_speed');
         <div class="row">
             <div class="col-12">
                 <?php if ($logo_slider_items && is_array($logo_slider_items)): ?>
-                    <div class="logo_slider_block__slider owl-carousel"
+                    <div class="logo_slider_block__slider owl-carousel <?= $logo_slider_grayscale ? 'logo_slider_block__slider--grayscale' : ''; ?>"
                         data-speed="<?= $logo_slider_speed ? intval($logo_slider_speed) : 8000; ?>">
                         <?php foreach ($logo_slider_items as $item):
                             $image = isset($item['logo_image']) ? $item['logo_image'] : null;

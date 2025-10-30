@@ -10,12 +10,9 @@ $hero_video_overlay_color = get_sub_field('hero_video_overlay_color');
 $hero_video_overlay_opacity = get_sub_field('hero_video_overlay_opacity');
 
 @require 'global-settings.php';
-
-// Function to get video embed URL
 function get_video_embed_url($url)
 {
     if (strpos($url, 'youtube.com') !== false || strpos($url, 'youtu.be') !== false) {
-        // YouTube
         if (strpos($url, 'youtu.be') !== false) {
             $video_id = substr(parse_url($url, PHP_URL_PATH), 1);
         } else {
@@ -24,17 +21,14 @@ function get_video_embed_url($url)
         }
         return 'https://www.youtube.com/embed/' . $video_id;
     } elseif (strpos($url, 'vimeo.com') !== false || strpos($url, 'player.vimeo.com') !== false) {
-        // Vimeo - handle both regular and player URLs
         if (strpos($url, 'player.vimeo.com') !== false) {
-            // Already a player URL, return as is
             return $url;
         } else {
-            // Regular Vimeo URL, convert to player URL
             $video_id = substr(parse_url($url, PHP_URL_PATH), 1);
             return 'https://player.vimeo.com/video/' . $video_id;
         }
     }
-    return $url; // Return original URL for direct video files
+    return $url;
 }
 ?>
 <section class="hero_video_block <?= $theme_class; ?> <?= $padding_class; ?>">
@@ -45,14 +39,12 @@ function get_video_embed_url($url)
                     <?php if ($hero_video_url): ?>
                         <div class="hero_video_block__video-container">
                             <?php if (strpos($hero_video_url, 'youtube.com') !== false || strpos($hero_video_url, 'youtu.be') !== false || strpos($hero_video_url, 'vimeo.com') !== false): ?>
-                                <!-- Embedded Video (YouTube/Vimeo) -->
                                 <iframe
                                     src="<?= get_video_embed_url($hero_video_url); ?>?autoplay=<?= $hero_video_autoplay ? '1' : '0'; ?>&muted=<?= $hero_video_autoplay ? '1' : '0'; ?>&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
                                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
                                     loading="<?= $lazy_load_class; ?>">
                                 </iframe>
                             <?php else: ?>
-                                <!-- Direct Video File -->
                                 <video <?= $hero_video_autoplay ? 'autoplay' : ''; ?> muted loop playsinline
                                     <?= $hero_video_poster ? 'poster="' . $hero_video_poster['url'] . '"' : ''; ?>>
                                     <source src="<?= $hero_video_url; ?>" type="video/mp4">

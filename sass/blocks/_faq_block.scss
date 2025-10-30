@@ -8,18 +8,15 @@
   }
 
   .faq_block__item {
-    // OPEN STYLES
     &[open] {
       border-bottom: none;
       .faq_block__question {
-        color: $black; // Question text color when open
+        color: $black;
         border-bottom: none;
-
-        // OPEN ICON: Change the plus to a minus (or a rotated icon)
         &::after {
-          content: "—"; // Change the content to a minus sign
-          transform: rotate(180deg); // Rotate the minus for visual effect
-          color: $black; // Icon color when open
+          content: "—";
+          transform: rotate(180deg);
+          color: $black;
           font-size: 14px;
         }
       }
@@ -33,7 +30,6 @@
       }
     }
 
-    // QUESTION STYLES (Summary)
     .faq_block__question {
       display: flex;
       justify-content: space-between;
@@ -53,15 +49,12 @@
         font-size: 19px;
       }
 
-      // 3. Custom Icon (Plus symbol)
       &::after {
         content: "+";
-        color: $black; // Icon color when closed
-        transition: transform 0.3s ease; // Smooth transition for the icon
-        margin-left: 1rem; // Ensure space between question text and icon
+        color: $black;
+        transition: transform 0.3s ease;
+        margin-left: 1rem;
       }
-
-      // Your existing general question styles
       font-size: 20px;
       font-weight: 700;
       color: $black;
@@ -80,7 +73,6 @@
     }
   }
 
-  // Theme 2 overrides
   &.theme_2 {
     background-color: $color1;
 
@@ -94,14 +86,12 @@
     .faq_block__item {
       &[open] {
         .faq_block__question {
-          color: $white; // Question text color when open
+          color: $white;
           border-bottom: none;
-
-          // OPEN ICON: Change the plus to a minus (or a rotated icon)
           &::after {
-            content: "—"; // Change the content to a minus sign
-            transform: rotate(180deg); // Rotate the minus for visual effect
-            color: $white; // Icon color when open
+            content: "—";
+            transform: rotate(180deg);
+            color: $white;
             font-size: 14px;
           }
         }
@@ -124,15 +114,12 @@
           font-size: 19px;
         }
 
-        // 3. Custom Icon (Plus symbol)
         &::after {
           content: "+";
-          color: $white; // Icon color when closed
-          transition: transform 0.3s ease; // Smooth transition for the icon
-          margin-left: 1rem; // Ensure space between question text and icon
+          color: $white;
+          transition: transform 0.3s ease;
+          margin-left: 1rem;
         }
-
-        // Your existing general question styles
         font-size: 20px;
         font-weight: 700;
         color: $white;

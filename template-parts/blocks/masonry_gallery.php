@@ -1,5 +1,4 @@
 <?php
-// content
 $gallery_images = get_sub_field('masonry_gallery_gallery');
 require 'global-settings.php';
 $delay = 0

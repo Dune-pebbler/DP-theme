@@ -282,7 +282,6 @@
     font-size: 0.9rem;
   }
 
-  // Theme 2 overrides
   &.theme_2 {
     background-color: $color1;
 
@@ -345,7 +344,6 @@
     }
   }
 
-  // Responsive adjustments
   @media (max-width: 767px) {
     .archive_block__posts-grid {
       grid-template-columns: 1fr;

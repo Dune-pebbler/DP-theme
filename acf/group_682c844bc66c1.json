@@ -2101,6 +2101,22 @@
               "step": 100
             },
             {
+              "key": "field_68fa0a1b2c3dc",
+              "label": "Grijstint effect",
+              "name": "logo_slider_grayscale",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "Logos worden grijs getoond en krijgen kleur bij hover",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": { "width": "30", "class": "", "id": "" },
+              "message": "",
+              "default_value": 0,
+              "ui_on_text": "",
+              "ui_off_text": "",
+              "ui": 1
+            },
+            {
               "key": "field_68fa0a1b2c3db",
               "label": "Global Settings",
               "name": "",
@@ -2110,6 +2126,251 @@
               "required": 0,
               "conditional_logic": 0,
               "wrapper": { "width": "", "class": "", "id": "" },
+              "clone": ["group_68dfde7f96c4f"],
+              "display": "seamless",
+              "layout": "block",
+              "prefix_label": 0,
+              "prefix_name": 0
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_68fb1c2d3e4f5": {
+          "key": "layout_68fb1c2d3e4f5",
+          "name": "contact_block",
+          "label": "Contact",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_68fb1c2d3e4f6",
+              "label": "Content",
+              "name": "",
+              "aria-label": "",
+              "type": "tab",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "placement": "top",
+              "endpoint": 0,
+              "selected": 0
+            },
+            {
+              "key": "field_68fb1c2d3e4f7",
+              "label": "Contact Content",
+              "name": "contact_content",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Voer hier uw contact formulier shortcode of andere contact content in",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "allow_in_bindings": 0,
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0
+            },
+            {
+              "key": "field_68fb1c2d3e4f8",
+              "label": "Settings",
+              "name": "",
+              "aria-label": "",
+              "type": "tab",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "placement": "top",
+              "endpoint": 0,
+              "selected": 0
+            },
+            {
+              "key": "field_68fb1c2d3e4f9",
+              "label": "",
+              "name": "",
+              "aria-label": "",
+              "type": "clone",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "clone": ["group_68dfde7f96c4f"],
+              "display": "seamless",
+              "layout": "block",
+              "prefix_label": 0,
+              "prefix_name": 0
+            }
+          ],
+          "min": "",
+          "max": ""
+        },
+        "layout_68fc2d3e4f5g6": {
+          "key": "layout_68fc2d3e4f5g6",
+          "name": "google_maps_block",
+          "label": "Google Maps",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_68fc2d3e4f5g7",
+              "label": "Content",
+              "name": "",
+              "aria-label": "",
+              "type": "tab",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "placement": "top",
+              "endpoint": 0,
+              "selected": 0
+            },
+            {
+              "key": "field_68fc2d3e4f5g8",
+              "label": "Google Maps",
+              "name": "google_maps_location",
+              "aria-label": "",
+              "type": "google_map",
+              "instructions": "Selecteer de locatie op de kaart",
+              "required": 1,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "center_lat": "52.3676",
+              "center_lng": "4.9041",
+              "zoom": 10,
+              "height": 400,
+              "allow_in_bindings": 0
+            },
+            {
+              "key": "field_68fc2d3e4f5g9",
+              "label": "Content (optioneel)",
+              "name": "google_maps_content",
+              "aria-label": "",
+              "type": "wysiwyg",
+              "instructions": "Content die naast de kaart wordt getoond in 2-kolommen layout",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_68fc2d3e4f5ga",
+                    "operator": "==",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "allow_in_bindings": 0,
+              "tabs": "all",
+              "toolbar": "full",
+              "media_upload": 1,
+              "delay": 0
+            },
+            {
+              "key": "field_68fc2d3e4f5gb",
+              "label": "Settings",
+              "name": "",
+              "aria-label": "",
+              "type": "tab",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "placement": "top",
+              "endpoint": 0,
+              "selected": 0
+            },
+            {
+              "key": "field_68fc2d3e4f5ga",
+              "label": "2 Kolommen Layout",
+              "name": "google_maps_two_columns",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "Schakel in voor 2-kolommen layout (content links, kaart rechts)",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "message": "",
+              "default_value": 0,
+              "allow_in_bindings": 0,
+              "ui_on_text": "2 Kolommen",
+              "ui_off_text": "Volledige breedte",
+              "ui": 1
+            },
+            {
+              "key": "field_68fc2d3e4f5gc",
+              "label": "Kaart Hoogte (px)",
+              "name": "google_maps_height",
+              "aria-label": "",
+              "type": "number",
+              "instructions": "Hoogte van de kaart in pixels",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 400,
+              "min": 200,
+              "max": 800,
+              "step": 50,
+              "allow_in_bindings": 0,
+              "prepend": "",
+              "append": "px"
+            },
+            {
+              "key": "field_68fc2d3e4f5gd",
+              "label": "",
+              "name": "",
+              "aria-label": "",
+              "type": "clone",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
               "clone": ["group_68dfde7f96c4f"],
               "display": "seamless",
               "layout": "block",

@@ -6,8 +6,6 @@ $archive_search_placeholder = get_sub_field('archive_search_placeholder') ?: 'Se
 $archive_show_search = get_sub_field('archive_show_search');
 $archive_show_load_more = get_sub_field('archive_show_load_more');
 require 'global-settings.php';
-
-// Get initial posts
 $args = array(
     'post_type' => $archive_post_type,
     'posts_per_page' => $archive_posts_per_page,
@@ -75,14 +73,6 @@ $total_posts = $archive_posts->found_posts;
                                         <div class="archive_block__card-meta">
                                             <span class="archive_block__card-date"><?= get_the_date(); ?></span>
                                             <?php if ($archive_post_type === 'post'): ?>
-                                                <!-- <span class="archive_block__card-category">
-                                                    <?php
-                                                    $categories = get_the_category();
-                                                    if ($categories) {
-                                                        echo $categories[0]->name;
-                                                    }
-                                                    ?>
-                                                </span> -->
                                             <?php endif; ?>
                                         </div>
                                         <div class="archive_block__card-excerpt">
