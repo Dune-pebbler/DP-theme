@@ -64,6 +64,10 @@ get_header(); ?>
                 <?php if (get_row_layout() === 'google_maps_block'): ?>
                         <?php get_template_part('template-parts/blocks/google_maps_block'); ?>
                 <?php endif; ?>
+
+                <?php if (get_row_layout() === 'recent_posts_block'): ?>
+                        <?php get_template_part('template-parts/blocks/recent_posts_block'); ?>
+                <?php endif; ?>
         <?php endwhile; ?>
 <?php endif; ?>
 
