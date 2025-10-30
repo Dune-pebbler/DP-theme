@@ -2380,6 +2380,197 @@
           ],
           "min": "",
           "max": ""
+        },
+        "layout_68fd3e4f5g6h7": {
+          "key": "layout_68fd3e4f5g6h7",
+          "name": "recent_posts_block",
+          "label": "Recente Berichten",
+          "display": "block",
+          "sub_fields": [
+            {
+              "key": "field_68fd3e4f5g6h8",
+              "label": "Content",
+              "name": "",
+              "aria-label": "",
+              "type": "tab",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "placement": "top",
+              "endpoint": 0,
+              "selected": 0
+            },
+            {
+              "key": "field_68fd3e4f5g6h9",
+              "label": "Titel",
+              "name": "recent_posts_title",
+              "aria-label": "",
+              "type": "text",
+              "instructions": "Optionele titel boven het blok",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "default_value": "",
+              "maxlength": "",
+              "allow_in_bindings": 0,
+              "placeholder": "Recente Berichten",
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_68fd3e4f5g6ha",
+              "label": "Post Type",
+              "name": "recent_posts_post_type",
+              "aria-label": "",
+              "type": "select",
+              "instructions": "Selecteer het post type om weer te geven",
+              "required": 1,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "choices": {
+                "post": "Berichten",
+                "page": "Pagina's",
+                "product": "Producten"
+              },
+              "default_value": "post",
+              "return_format": "value",
+              "multiple": 0,
+              "allow_null": 0,
+              "ui": 0,
+              "ajax": 0,
+              "placeholder": "",
+              "search_placeholder": "",
+              "allow_custom": 0,
+              "layout": "vertical",
+              "save_other_choice": 0
+            },
+            {
+              "key": "field_68fd3e4f5g6hb",
+              "label": "Aantal Berichten",
+              "name": "recent_posts_count",
+              "aria-label": "",
+              "type": "number",
+              "instructions": "Aantal berichten om te tonen",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 3,
+              "min": 1,
+              "max": 12,
+              "step": 1,
+              "allow_in_bindings": 0,
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_68fd3e4f5g6hc",
+              "label": "Toon Excerpt",
+              "name": "recent_posts_show_excerpt",
+              "aria-label": "",
+              "type": "true_false",
+              "instructions": "Toon een korte samenvatting van het bericht",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "message": "",
+              "default_value": 1,
+              "allow_in_bindings": 0,
+              "ui_on_text": "Ja",
+              "ui_off_text": "Nee",
+              "ui": 1
+            },
+            {
+              "key": "field_68fd3e4f5g6hd",
+              "label": "Excerpt Lengte",
+              "name": "recent_posts_excerpt_length",
+              "aria-label": "",
+              "type": "number",
+              "instructions": "Aantal woorden in de excerpt",
+              "required": 0,
+              "conditional_logic": [
+                [
+                  {
+                    "field": "field_68fd3e4f5g6hc",
+                    "operator": "==",
+                    "value": "1"
+                  }
+                ]
+              ],
+              "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+              },
+              "default_value": 20,
+              "min": 5,
+              "max": 100,
+              "step": 5,
+              "allow_in_bindings": 0,
+              "prepend": "",
+              "append": ""
+            },
+            {
+              "key": "field_68fd3e4f5g6he",
+              "label": "Settings",
+              "name": "",
+              "aria-label": "",
+              "type": "tab",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "placement": "top",
+              "endpoint": 0,
+              "selected": 0
+            },
+            {
+              "key": "field_68fd3e4f5g6hf",
+              "label": "",
+              "name": "",
+              "aria-label": "",
+              "type": "clone",
+              "instructions": "",
+              "required": 0,
+              "conditional_logic": 0,
+              "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+              },
+              "clone": ["group_68dfde7f96c4f"],
+              "display": "seamless",
+              "layout": "block",
+              "prefix_label": 0,
+              "prefix_name": 0
+            }
+          ],
+          "min": "",
+          "max": ""
         }
       },
       "min": "",
