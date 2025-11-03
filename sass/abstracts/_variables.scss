@@ -1,30 +1,55 @@
-
 // ----------------------- MAIN COLORS ----------------------- //
 
 $black: #000;
 $white: #fff;
 
-$color1: #3129b9; 
-$color2: #000;
-$color3: #000;
-$color4: #333b6f;
-
 $btn-color1: blue;
-$btn-color2:blue;
+$btn-color2: blue;
 
 $btn-text-light: #fff;
 $btn-text-dark: #000;
 
+// ----------------------- SEMANTIC DESIGN TOKENS ----------------------- //
+// These add a role-based layer (backgrounds/text) while keeping existing palette intact.
+// Use these in new/updated styles; old tokens remain for backward compatibility.
+
+// Backgrounds (canvas layers)
+$background-body: $white !default; // body background
+$background-surface: $white !default; // cards, modals, header, dropdowns
+$background-alt: #f7f8fa !default; // alternate section background
+$background-inverse: #111111 !default; // inverted/dark sections
+
+// Text roles
+$text-primary: $black !default; // default readable copy (matches legacy #000)
+$text-secondary: #6b7280 !default; // subdued/meta text
+$text-heading: #0f172a !default; // headings (can equal primary if desired)
+$text-inverse: $white !default; // text on inverse backgrounds
+
+// Brand roles bridging existing palette
+$brand-primary: #3129b9 !default; // legacy $color1
+$brand-secondary: #333b6f !default; // legacy $color4
+
+// Deprecated legacy palette aliases (to be removed after migration)
+// Keeps old styles working while you replace usages with semantic/brand tokens.
+$color1: $brand-primary; // DEPRECATED – use $brand-primary
+$color2: $text-primary; // DEPRECATED – use $text-primary or $background-inverse when used as bg
+$color3: $text-primary; // DEPRECATED – use $text-primary
+$color4: $brand-secondary; // DEPRECATED – use $brand-secondary
+
+// Button text aliases (bridge old -> new without breaking styles)
+$btn-text-light: $text-inverse !default;
+$btn-text-dark: $text-primary !default;
+
 //fonts are in the _typography.scss
 
-$shadow1:rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$shadow1: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
 $header-height-mobile: 84px;
 
 // ----------------------- SIZES ----------------------- //
 
 $screen-xs-max: 576px;
-$screen-sm-max: 768px; 
+$screen-sm-max: 768px;
 $screen-md-max: 992px;
 $screen-lg-max: 1199px;
 $screen-xl-max: 1340px;

@@ -2071,6 +2071,193 @@ picture {
   content: "Kaart kon niet worden geladen";
 }
 
+.recent_posts_block__title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+}
+.recent_posts_block__posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+@media (min-width: 768px) {
+  .recent_posts_block__posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.recent_posts_block__post-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.recent_posts_block__post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+.recent_posts_block__card-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.recent_posts_block__card-image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.recent_posts_block__card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.recent_posts_block__card-image:hover img {
+  transform: scale(1.05);
+}
+.recent_posts_block__placeholder-image {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.3);
+}
+.recent_posts_block__placeholder-image i {
+  font-size: 3rem;
+}
+.recent_posts_block__card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.recent_posts_block__card-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.recent_posts_block__card-title a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.recent_posts_block__card-title a:hover {
+  color: #3129b9;
+}
+.recent_posts_block__card-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+.recent_posts_block__card-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.recent_posts_block__card-date i {
+  font-size: 0.875rem;
+}
+.recent_posts_block__card-excerpt {
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.5;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+.recent_posts_block__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3129b9;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  margin-top: auto;
+}
+.recent_posts_block__card-link:hover {
+  color: #000;
+}
+.recent_posts_block__card-link i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+.recent_posts_block__card-link:hover i {
+  transform: translateX(2px);
+}
+.recent_posts_block__no-posts {
+  text-align: center;
+  padding: 3rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.1rem;
+  grid-column: 1/-1;
+}
+.recent_posts_block.theme_primary {
+  background-color: #3129b9;
+}
+.recent_posts_block.theme_primary .recent_posts_block__title {
+  color: #fff;
+}
+.recent_posts_block.theme_primary .recent_posts_block__post-card {
+  background: #fff;
+}
+.recent_posts_block.theme_primary .recent_posts_block__no-posts {
+  color: rgba(255, 255, 255, 0.8);
+}
+.recent_posts_block.theme_secondary {
+  background-color: #000;
+}
+.recent_posts_block.theme_secondary .recent_posts_block__title {
+  color: #fff;
+}
+.recent_posts_block.theme_secondary .recent_posts_block__post-card {
+  background: #fff;
+}
+.recent_posts_block.theme_secondary .recent_posts_block__no-posts {
+  color: rgba(255, 255, 255, 0.8);
+}
+.recent_posts_block.theme_tertiary {
+  background-color: #000;
+}
+.recent_posts_block.theme_tertiary .recent_posts_block__title {
+  color: #fff;
+}
+.recent_posts_block.theme_tertiary .recent_posts_block__post-card {
+  background: #fff;
+}
+.recent_posts_block.theme_tertiary .recent_posts_block__no-posts {
+  color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 767px) {
+  .recent_posts_block__posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .recent_posts_block__card-content {
+    padding: 1rem;
+  }
+  .recent_posts_block__card-title {
+    font-size: 1.1rem;
+  }
+  .recent_posts_block__title {
+    font-size: 1.5rem;
+  }
+}
+
 .btn, .owl-nav .owl-prev,
 .owl-nav .owl-next, .btn-outline, .btn-secondary,
 .btn-primary {
